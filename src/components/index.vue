@@ -1,12 +1,14 @@
 <script>
 import {mapState, mapActions} from 'vuex'
 import Comment from './comment.vue'
+import NewComment from './new_comment.vue'
 
 export default {
 	computed:{...mapState(['items', 'comments'])},
 	methods: {...mapActions({more: 'increment'})},
 	components:{
-		Comment
+		Comment,
+		NewComment
 	}
 }
 </script>
@@ -17,6 +19,7 @@ export default {
 		| Комментарии
 	//- .example(v-for='item in items') {{$t('hello')}}, {{item}}
 	comment(v-for='comment in comments', :comment="comment")
+	new-comment
 </template>
 
 <style lang="stylus" src="styles/index.styl"/>
