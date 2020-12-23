@@ -1,0 +1,6 @@
+.svn/
+distr/
+src/data/
+src/libs/doc
+**/node_modules/
+**.DS_Store
