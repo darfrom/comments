@@ -20,8 +20,24 @@ body
 
 .comment
 	// border 1px solid black
-	margin 10px 0
+	margin 10px 0 0 10px
 	padding 5px 10px
-	background #f5f5f5
-	box-shadow: 1px 1px 2px #343434;
+	background #E0E0E0//#f5f5f5
+	box-shadow: 1px 1px 2px #6b6b6b//#343434;
 	border-radius: 3px;
+	position relative
+	&:before
+		content ''
+		position absolute
+		height 30px
+		width 10px
+		top 5px
+		left 0
+		background url(/assets/comment.svg)
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		transform: translate(-100%, 0);
+
+.comment__info-box
+	display flex

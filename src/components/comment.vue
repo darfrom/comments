@@ -11,8 +11,8 @@ export default {
 <template lang="pug">
 .comment
 	.comment__info-box
-		.comment__date {{comment.timestamp}}
 		.comment__user {{comment.user_first_name}}
+		.comment__date {{comment.timestamp}}
 	.comment__content {{comment.text}}
 </template>
 
