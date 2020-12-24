@@ -8,7 +8,6 @@ export default createStore({
 			companyid: "0",
 			url: "/test",
 			comments: [],
-			// error: null
 		}
 	},
 	mutations:{
