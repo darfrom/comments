@@ -12,7 +12,7 @@ export default {
 .comment
 	.comment__info-box
 		.comment__user {{comment.user.first_name}} {{comment.user.last_name}}
-		.comment__date {{comment.timestamp}}
+		.comment__date {{new Date(comment.timestamp).toLocaleString()}}
 	.comment__content {{comment.text}}
 </template>
 
