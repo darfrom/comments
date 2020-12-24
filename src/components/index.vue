@@ -22,4 +22,4 @@ export default {
 	new-comment
 </template>
 
-<style lang="stylus" src="styles/index.styl"/>
+<style scoped lang="stylus" src="styles/index.styl"/>
