@@ -8,8 +8,9 @@ export default {
 	// computed:{...mapState(['items'])},
 	// methods: {...mapActions({more: 'increment'})},
 	data(){return{
-		name: null,
-		comment: null
+		first_name: null,
+		last_name: null,
+		text: null
 	}},
 	components:{
 		ElInput
@@ -19,13 +20,14 @@ export default {
 
 <template lang="pug">
 .comment
-	.comment__info-box
+	.comment__info-box.new
 		.comment__user 
-			| Ваше имя:
-			el-input.input(placeholder="Please input", v-model="name")
+			el-input.input(placeholder="Имя", v-model="first_name")
+		.comment__user 
+			el-input.input(placeholder="Фамилия", v-model="last_name")
 	.comment__content 
 		| Комментарий:
-		el-input(type="textarea",  :autosize="{ minRows: 2, maxRows: 4}",  placeholder="Please input",  v-model="comment")
+		el-input(type="textarea",  :autosize="{ minRows: 2, maxRows: 4}",  placeholder="Введите текст",  v-model="text")
 	button.send
 		| Отправить
 </template>
