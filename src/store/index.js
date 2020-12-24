@@ -1,4 +1,5 @@
 import {createStore} from 'vuex'
+import { ElMessage } from 'element-plus';
 
 export default createStore({
 	state(){
@@ -6,7 +7,8 @@ export default createStore({
 			items:[1,2,3,4],
 			companyid: "0",
 			url: "/test",
-			comments: []
+			comments: [],
+			// error: null
 		}
 	},
 	mutations:{
@@ -45,23 +47,17 @@ export default createStore({
 					x.ok ? x.json() : x.json().then(err => Promise.reject(err) )
 				)
 				.then(x => {
-					// console.log('abc', x)
-					// this.item.name = x.name
-					// this.loading = false
 					if (x.comment.status == "published"){
 						commit('_add_comment', x.comment)
+						ElMessage.success("Ваш комментарий добавлен!")
 					}
 					else  {
-						alert('Ваш комментарий добавится после проверки модератором!')
+						ElMessage.success("Ваш комментарий отправлен! Комментарий будет опубликован после проверки модератором!")
 					}
 				})
 				.catch(res => {
-					// this.loading = false;
-					// this.errorCurrent = true;
-					// this.error(res) 
-					alert("error")
+					ElMessage.error("Произошла непредвиденная ошибка, повторите позже!")
 				})
-			// const comments =  await fetch(`http://localhost:9000/pagecomments/?companyid=${companyid}&url=${url}`)
 		}
 	}
 })

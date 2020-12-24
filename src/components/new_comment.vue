@@ -13,9 +13,6 @@ export default {
 		text: null
 	}},
 	methods:{
-		test(){
-			alert("aaa")
-		},
 		sendComment(){
 			this.$store.dispatch('new_comment',{
 				first_name: this.first_name,
