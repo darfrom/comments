@@ -21,4 +21,4 @@ export default {
 		| Отправить
 </template>
 
-<style lang="stylus" src="styles/index.styl"/>
+<style scoped lang="stylus" src="styles/index.styl"/>

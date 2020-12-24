@@ -16,4 +16,4 @@ export default {
 	.comment__content {{comment.text}}
 </template>
 
-<style lang="stylus" src="styles/index.styl"/>
+<style scoped lang="stylus" src="styles/index.styl"/>
