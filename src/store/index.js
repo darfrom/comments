@@ -34,7 +34,9 @@ export default createStore({
 		}
 	},
 	actions:{
-		increment({commit}){ commit('_inc') }
+		increment({commit}){ commit('_inc')},
+		// newcomment()
+		// localhost:9000/pagecomments/newcomment
 	}
 })
 
