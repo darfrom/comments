@@ -8,17 +8,19 @@ import 'element-plus/lib/theme-chalk/index.css';
 export default {
 	computed:{...mapState(['items', 'comments'])},
 	methods: {...mapActions({more: 'increment'})},
+	created(){
+		this.$store.dispatch('init')
+	},
 	components:{
 		Comment,
 		NewComment
-	}
+	},
 }
 </script>
 
 <template lang="pug">
 .comments-box
-	.main-title
-		| Комментарии
+	.main-title Комментарии
 	//- .example(v-for='item in items') {{$t('hello')}}, {{item}}
 	comment(v-for='comment in comments', :comment="comment")
 	new-comment

@@ -16,9 +16,8 @@ export default {
 		test(){
 			alert("aaa")
 		},
-		sendComment(e){
-			e.preventDefault()
-			$store.dispatch('new_comment',{
+		sendComment(){
+			this.$store.dispatch('new_comment',{
 				first_name: this.first_name,
 				last_name: this.last_name,
 				text: this.text
@@ -32,7 +31,7 @@ export default {
 </script>
 
 <template lang="pug">
-form.comment(v-on:submit.prevent=sendComment)
+form.comment(@submit.prevent="sendComment")
 	.comment__info-box.new
 		.comment__user 
 			el-input.input(placeholder="Имя", v-model="first_name", required=true)

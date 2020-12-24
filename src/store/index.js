@@ -29,9 +29,8 @@ export default createStore({
 		}
 	},
 	mutations:{
-		async _inc(state) {
-			const comments =  await fetch(`http://localhost:9000/pagecomments/?companyid=${state.companyid}&url=${state.url}`)
-			state.comments.push(comments)
+		async _init(state, comments) {			
+			state.comments = comments
 		},
 		_add_comment(state, comment) {
 			state.comments.push(comment)
@@ -39,7 +38,12 @@ export default createStore({
 
 	},
 	actions:{
-		increment({commit}){ commit('_inc')},
+		async init({state, commit}){ 
+			const comments =  await fetch(`//localhost:9000/pagecomments/?companyid=${state.companyid}&url=${state.url}`)
+				.then(x => x.json())
+
+			commit('_init', comments.comments)
+		},
 		new_comment({state, commit}, comment){
 			const jBody = JSON.stringify({
 					company_id: state.companyid,
@@ -48,32 +52,29 @@ export default createStore({
 					last_name: comment.last_name,
 					text: comment.text
 				})
-				this.loading = true
-				this.errorCurrent = false
-				fetch(this.url(`localhost:9000/pagecomments/newcomment`),
-					{
-					    headers: {
-					      'Accept': 'application/json',
-					      'Content-Type': 'application/json'
-					    },
-					    method: "POST",
-					    body: jBody
-					})
-					.then(x => 
-						x.ok ? x.json() : x.json().then(err => Promise.reject(err) )
-					)
-					.then(x => {
-						// console.log('abc', x)
-						// this.item.name = x.name
-						// this.loading = false
-						alert(x)
-					})
-					.catch(res => {
-						// this.loading = false;
-						// this.errorCurrent = true;
-						// this.error(res) 
-						alert("error")
-					})
+			fetch(`//localhost:9000/pagecomments/newcomment/noauth`,{
+				    headers: {
+				      'Accept': 'application/json',
+				      'Content-Type': 'application/json'
+				    },
+				    method: "POST",
+				    body: jBody
+				})
+				.then(x => 
+					x.ok ? x.json() : x.json().then(err => Promise.reject(err) )
+				)
+				.then(x => {
+					// console.log('abc', x)
+					// this.item.name = x.name
+					// this.loading = false
+					commit('_add_comment', x.comment)
+				})
+				.catch(res => {
+					// this.loading = false;
+					// this.errorCurrent = true;
+					// this.error(res) 
+					alert("error")
+				})
 			// const comments =  await fetch(`http://localhost:9000/pagecomments/?companyid=${companyid}&url=${url}`)
 		}
 	}
