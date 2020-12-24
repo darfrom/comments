@@ -22,6 +22,9 @@ export default {
 				last_name: this.last_name,
 				text: this.text
 			})
+			this.first_name = null
+			this.last_name = null
+			this.text = null
 		}
 	},
 	components:{

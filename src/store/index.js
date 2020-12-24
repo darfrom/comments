@@ -6,26 +6,7 @@ export default createStore({
 			items:[1,2,3,4],
 			companyid: "0",
 			url: "/test",
-
 			comments: []
-			// comments:[
-			// 	{
-			// 		"id": 8,
-			// 		"page": {
-			// 			"id": 9,
-			// 			"url": "/test4"
-			// 		},
-			// 		"user": {
-			// 			"id": 0,
-			// 			"first_name": "Ivan",
-			// 			"last_name": "Ivanov"
-			// 		},
-			// 		"timestamp": "2020-12-23T23:23:39.194864Z",
-			// 		"text": "New comment2222",
-			// 		"status": "deleted",
-			// 		"important": false
-			// 	}
-			// ]
 		}
 	},
 	mutations:{
@@ -67,7 +48,12 @@ export default createStore({
 					// console.log('abc', x)
 					// this.item.name = x.name
 					// this.loading = false
-					commit('_add_comment', x.comment)
+					if (x.comment.status == "published"){
+						commit('_add_comment', x.comment)
+					}
+					else  {
+						alert('Ваш комментарий добавится после проверки модератором!')
+					}
 				})
 				.catch(res => {
 					// this.loading = false;
