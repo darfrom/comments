@@ -44,7 +44,8 @@ export default createStore({
 			const jBody = JSON.stringify({
 					company_id: state.companyid,
 					url: state.url,
-					user_id: 0,
+					first_name: comment.first_name,
+					last_name: comment.last_name,
 					text: comment.text
 				})
 				this.loading = true

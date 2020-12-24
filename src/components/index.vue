@@ -3,6 +3,7 @@ import {mapState, mapActions} from 'vuex'
 import Comment from './comment.vue'
 import NewComment from './new_comment.vue'
 import 'element-plus/lib/theme-chalk/index.css';
+// import '../theme/index.css'
 
 export default {
 	computed:{...mapState(['items', 'comments'])},
