@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template lang="pug">
-form.comment(@submit.prevent="sendComment")
+form.comment.new-box(@submit.prevent="sendComment")
 	.comment__info-box.new
 		.comment__user 
 			el-input.input(placeholder="Имя", v-model="first_name", required=true)

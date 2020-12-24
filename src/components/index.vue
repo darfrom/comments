@@ -21,8 +21,8 @@ export default {
 <template lang="pug">
 .comments-box
 	.main-title Комментарии
-	//- .example(v-for='item in items') {{$t('hello')}}, {{item}}
-	comment(v-for='comment in comments', :comment="comment")
+	.coments-box__box
+		comment(v-for='comment in comments', :comment="comment")
 	new-comment
 </template>
 

@@ -8,6 +8,18 @@
 	font-weight 200
 	font-size 16px
 	color #424242
+	*
+		outline none
+		&::-webkit-scrollbar
+			width: 4px;
+		&::-webkit-scrollbar:horizontal
+			height 6px
+		&::-webkit-scrollbar-track-piece
+			background inherit
+		&::-webkit-scrollbar-thumb
+			border-radius 1.5px
+			background-color: #c1c1c1
+			cursor pointer
 
 .alert-box
 	position: absolute;
@@ -26,9 +38,12 @@
 	font-weight 500
 	margin-bottom: 20px;
 
+.coments-box__box
+	max-height: 500px;
+	overflow: auto;
 .comment
 	// border 1px solid black
-	margin 10px 0 0 10px
+	margin 10px 2px 2px 10px
 	padding 8px 10px
 	background #ebebeb//#E0E0E0//#f5f5f5
 	box-shadow: 1px 1px 2px #6b6b6b//#343434;
@@ -37,6 +52,9 @@
 	min-height 40px
 	display: flex;
 	flex-direction: column;
+	width: fit-content;
+	&.new-box
+		width auto
 	&:before
 		content ''
 		position absolute
